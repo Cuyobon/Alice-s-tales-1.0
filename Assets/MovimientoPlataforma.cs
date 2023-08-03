@@ -26,7 +26,7 @@ public class MovimientoPlataforma : MonoBehaviour
     }
     private void Girar (){
         moviendoDerecha = !moviendoDerecha;
-        transform.eulerAngles = new Vector3 (transform.eulerAngles.y + 180, 0);
+        transform.eulerAngles = new Vector3 (0, transform.eulerAngles.y + 180, 0);
         velocidad *= -1;
     }
 
