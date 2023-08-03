@@ -6,15 +6,21 @@ public class Enemigo : MonoBehaviour
 {
     [SerializeField] private float vida;
     [SerializeField] GameObject efectoMuerte;
-    //private Animator animator;
+    private bool recibiendoDaño;
+    private Animator animator;
 
-    /*private void Start()
+    private void Start()
     {
         animator = GetComponent<Animator>();
-    }*/
+    }
 
     public void Tomardaño(float daño)
     {
+        recibiendoDaño = true;
+        if(recibiendoDaño == true)
+        {
+            animator.SetTrigger("daño");
+        }
         vida -= daño;
         
         if (vida <= 0)
@@ -22,7 +28,6 @@ public class Enemigo : MonoBehaviour
             Muerte();
         }
     }
-
     private void Muerte()
     {
         //animator.SetTrigger("Muerte");
