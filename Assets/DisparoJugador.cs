@@ -6,7 +6,8 @@ public class DisparoJugador : MonoBehaviour
 {
     [SerializeField] private Transform controladorDisparo;
     [SerializeField] private GameObject bala;
-    //[SerializeField] private float floatfiredisparo; =0.5f;
+    [SerializeField] private float tiempoEntreAtaques;
+    [SerializeField] private float tiempoSiguienteAtaque;
     private Animator animator;
 
     private void Start() {
@@ -14,10 +15,10 @@ public class DisparoJugador : MonoBehaviour
         animator = GetComponent<Animator>();}
 
     private void Update(){
-        /*if (tiempoSiguienteAtaque > 0){
-            tiempoSiguienteAtaque -= Time.deltaTime;}*/
+        if (tiempoSiguienteAtaque > 0){
+            tiempoSiguienteAtaque -= Time.deltaTime;}
 
-        if(Input.GetButtonDown("Fire2")){
+        if(Input.GetButtonDown("Fire2") && tiempoSiguienteAtaque <=0){
             //disparar
             Disparar(); 
             
