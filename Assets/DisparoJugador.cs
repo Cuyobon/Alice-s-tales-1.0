@@ -16,11 +16,13 @@ public class DisparoJugador : MonoBehaviour
 
     private void Update(){
         if (tiempoSiguienteAtaque > 0){
-            tiempoSiguienteAtaque -= Time.deltaTime;}
+            tiempoSiguienteAtaque -= Time.deltaTime;
+        }
 
         if(Input.GetButtonDown("Fire2") && tiempoSiguienteAtaque <=0){
             //disparar
             Disparar(); 
+            tiempoSiguienteAtaque = tiempoEntreAtaques;
             
         }
     }
