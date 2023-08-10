@@ -5,15 +5,14 @@ using UnityEngine.UI;
 
 public class coin : MonoBehaviour
 {
-    public Text Puntos_Texto;
-    public Puntos puntos;
-    [SerializeField] public int Puntos=0;
+    public int Puntos=1;
+    public GameManager gameManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
         {
-            puntos.SumarPuntos();
+            gameManager.sumarPuntos(Puntos);
             Destroy(this.gameObject);
         }
     }
